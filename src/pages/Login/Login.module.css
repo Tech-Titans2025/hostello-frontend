@@ -1,0 +1,128 @@
+
+.body {
+  margin: 0;
+}
+/* Login Page*/
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1f1f2e, #2c2c3a);
+  color: #fff;
+  animation: bgMove 15s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Login Container */
+.loginContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Login Box */
+.loginBox {
+  background-color: #2a2a3a;
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginBox:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+}
+
+/* Dropdown */
+.loginBox input,
+.loginBox select {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.loginBox input::placeholder,
+.loginBox select {
+  color: #bbb;
+}
+
+.loginBox select option {
+  background-color: #3b3b4f;
+  color: #fff;
+}
+
+.loginBox select option:hover {
+  background-color: #505069;
+  color: #fff;
+}
+
+.loginBox input:focus,
+.loginBox select:focus {
+  background-color: #505069;
+}
+
+/* Buttons */
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.loginBtn,
+.signupBtn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.loginBtn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.loginBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.signupBtn {
+  background-color: #44445a;
+  color: #fff;
+}
+
+.signupBtn:hover {
+  background-color: #5a5a75;
+  transform: translateY(-2px);
+}
+
+
+.errorMsg {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}

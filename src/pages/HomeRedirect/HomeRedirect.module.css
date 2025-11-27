@@ -1,0 +1,23 @@
+.container {
+  background-color: #121212;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.parent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.infoText {
+  font-size: 1.5rem;
+  color: #6c77f2;
+  text-shadow: 0 0 5px #4444c5;
+  font-weight: 600;
+  text-align: center;
+}

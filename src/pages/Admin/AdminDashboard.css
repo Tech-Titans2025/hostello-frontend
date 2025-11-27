@@ -1,0 +1,1234 @@
+/* Admin Dashboard Page */
+.adminDashPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1f1f2e, #2c2c3a, #24243e);
+  color: #fff;
+  animation: bgShift 20s ease infinite;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Layout */
+.adminDashboard {
+  flex: 1;
+  display: flex;
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+}
+
+/* Sidebar */
+
+/* Navigation */
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.2);
+  font-weight: 500;
+}
+
+.admin-nav a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(5px);
+}
+
+.admin-nav a.active {
+  background: linear-gradient(200deg, #1303a1, #331dff);
+  box-shadow: 0 5px 15px rgb(0 8 19 / 50%);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.05);
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Section Titles */
+.dashboard-content h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #bbb;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Buttons */
+.action-btn,
+.add-user-btn,
+.add-student-btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover,
+.add-user-btn:hover,
+.add-student-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,117,252,0.4);
+}
+
+/* Cards & Sections */
+.section{
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+}
+
+.section:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.section h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Admin dashboard components additional styles */
+.dashboard-loading {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255,255,255,0.7);
+}
+
+
+.admin-dashboard-content {
+  overflow-y: auto;
+}
+
+.admin-dashboard-content h1,
+.user-management h1,
+.student-management h1,
+.notification-management h1,
+.system-settings h1 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* User Management Styles */
+.user-actions,
+.student-actions,
+.notification-actions {
+  display: grid;
+  gap: 20px;
+}
+
+.user-actions-buttons{
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.user-actions-buttons button{
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.student-actions button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.student-actions-buttons{
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+}
+
+.student-actions-buttons button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+
+.search-section,
+.filter-section,
+.add-user-section,
+.add-student-section,
+.send-notification-section {
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-section h3,
+.filter-section h3,
+.add-user-section h3,
+.add-student-section h3,
+.send-notification-section h3 {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  font-size: 18px;
+}
+.send-notification-form button{
+  background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.send-notification-form{
+  margin: 10px;
+}
+
+.search-form,
+.filter-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+.search-form input,
+.filter-form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.3);
+  color: white;
+}
+
+.search-form button,
+.filter-form button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-user-btn,
+.add-student-btn,
+.send-notification-btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+.add-user-form input,
+.add-user-form select,
+.send-notification-form input,
+.send-notification-form textarea,
+.send-notification-form select,
+.add-student-form input,
+.add-student-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.4);
+  color: white;
+}
+
+
+/*  */
+.add-student-form input[type="date"]:invalid {
+  color: grey;
+}
+
+/* Remove default white color inside date field */
+.add-student-form input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  color: grey;
+}
+
+/* Show grey placeholder (mm/dd/yyyy) */
+.add-student-form input[type="date"]::-webkit-datetime-edit-text {
+  color: grey;
+}
+
+/* When VALID date selected → white */
+.add-student-form input[type="date"]:valid::-webkit-datetime-edit-text,
+.add-student-form input[type="date"]:valid::-webkit-datetime-edit-year-field,
+.add-student-form input[type="date"]:valid::-webkit-datetime-edit-month-field,
+.add-student-form input[type="date"]:valid::-webkit-datetime-edit-day-field {
+  color: white;
+}
+/* Placeholder (first option) → grey */
+.add-student-form select:invalid {
+  color: grey;
+}
+
+/* Ensure options show white text except placeholder */
+.add-student-form select option {
+  color: white;
+}
+
+.add-student-form select option[value=""] {
+  color: grey;  /* Placeholder text */
+}
+/*  */
+.add-user-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Student Management - Scoped styles migrated from module */
+.student-management .search-section,
+.student-management .filter-section,
+.student-management .add-student-section {
+  flex: 1;
+  min-width: 280px;
+}
+
+.student-management .search-form,
+.student-management .filter-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.student-management .search-form input[type="text"],
+.student-management .filter-form select {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #555;
+  background-color: #222;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.student-management .search-form input[type="text"]:focus,
+.student-management .filter-form select:focus {
+  border-color: #4a90e2;
+}
+
+.student-management .search-form button,
+.student-management .filter-form button,
+.student-management .add-student-btn,
+.student-management .student-actions button {
+  cursor: pointer;
+  background-color: #4a90e2;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.student-management .search-form button:hover,
+.student-management .filter-form button:hover,
+.student-management .add-student-btn:hover,
+.student-management .student-actions button:hover:not(.delete-btn):not(:disabled) {
+  background-color: #357abd;
+}
+
+.student-management .add-student-btn {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.student-management .add-student-form {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.student-management .add-student-form::before,
+.student-management .add-student-form::after {
+  content: none;
+}
+
+.student-management .form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.student-management .form-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 220px;
+  gap: 6px;
+}
+
+.student-management .form-subsection {
+  position: relative;
+  padding: 14px 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(51, 49, 49, 0.667);
+  border-radius: 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.student-management .subsection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.student-management .subsection-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.student-management .field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.student-management .field-grid.address-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.student-management .field-grid .form-field {
+  flex: initial;
+}
+
+.student-management .form-field label {
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #988cfade;
+}
+
+
+.student-management .form-field input:focus,
+.student-management .form-field select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.student-management .add-student-form h4 {
+  margin: 8px 0 0;
+  padding-top: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #9ebdff;
+  border-top: 1px dashed rgba(158, 189, 255, 0.35);
+}
+
+.student-management .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.student-management .add-student-form button[type="submit"] {
+  justify-self: flex-end;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  box-shadow: 0 6px 14px rgba(37, 117, 252, 0.3);
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.student-management .add-student-form button[type="submit"]:hover {
+  opacity: 0.95;
+  box-shadow: 0 8px 18px rgba(37, 117, 252, 0.35);
+}
+
+.student-management .form-row input[type="text"],
+.student-management .form-row input[type="date"],
+.student-management .form-row input[type="tel"],
+.student-management .form-row select {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #555;
+  background-color: #222;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.student-management .form-row input[type="text"]:focus,
+.student-management .form-row input[type="date"]:focus,
+.student-management .form-row input[type="tel"]:focus,
+.student-management .form-row select:focus {
+  border-color: #4a90e2;
+}
+
+.student-management .students-list {
+  margin-top: 32px;
+}
+
+.student-management .students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.student-management .student-card {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.student-management .student-card h4 {
+  margin: 0 0 8px 0;
+}
+
+.student-management .student-actions-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.student-management .student-actions-buttons button {
+  flex: 1 1 110px;
+}
+
+
+.student-management .student-actions-buttons button.delete-btn {
+  background-color: #a33;
+  color: #fff;
+}
+
+.student-management .student-actions-buttons button.delete-btn:hover {
+  background-color: #d55;
+}
+
+.student-management .student-actions-buttons button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #555 !important;
+  color: #ccc !important;
+}
+
+/* Edit / Create Login Modals */
+.editStudentModalOverlay,
+.createLoginModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100;
+  animation: fadeIn 0.25s ease;
+}
+
+.editStudentModalContainer,
+.createLoginModalContainer {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #e5e7eb;
+  padding: 16px 22px;
+  border-radius: 12px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideUp 0.25s ease;
+}
+
+/* Edit modal: slightly wider for full form */
+.editStudentModalContainer {
+  width: min(640px, 90vw);
+  max-height: none;          /* allow full height, no internal scrollbar */
+  overflow-y: visible;
+}
+
+/* Create login modal: more compact so it feels lighter */
+.createLoginModalContainer {
+  width: min(420px, 90vw);
+}
+
+.createLoginModalTitle {
+  margin-bottom: 14px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.createLoginForm .formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.createLoginForm h4.inputField {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0 0 4px;
+  color: #cbd5f5;
+}
+
+.createLoginForm input[type="text"],
+.createLoginForm input[type="password"] {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #555;
+  background-color: #363636;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.createLoginForm input[type="text"]:focus,
+.createLoginForm input[type="password"]:focus {
+  border-color: #4a90e2;
+}
+
+.editStudentModalTitle {
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.editStudentForm,
+.createLoginForm {
+  display: grid;
+  gap: 8px;
+}
+
+.editStudentForm input[disabled] {
+  cursor: not-allowed;
+  border: 1px solid #ccc;
+}
+
+.editStudentForm .form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.editStudentForm .form-row > .inputField,
+.editStudentForm .form-row > select {
+  flex: 1 1 200px;
+}
+
+.editStudentForm h4 {
+  margin: 16px 0 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.editStudentForm .buttonsRow,
+.createLoginForm .buttonsRow {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.inputField {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #555;
+  background-color: #363636;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.inputField:focus {
+  border-color: #4a90e2;
+}
+
+.buttonCancel {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  background-color: #555;
+  color: #ddd;
+  transition: background-color 0.3s;
+}
+
+.buttonCancel:hover {
+  background-color: #777;
+}
+
+.buttonSubmit {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.buttonSubmit:hover {
+  background-color: #357abd;
+}
+
+.users-list,
+.students-list,
+.notifications-list {
+  margin-top: 20px;
+}
+
+.users-list h3,
+.students-list h3,
+.notifications-list h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.users-grid,
+.students-grid,
+.notifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.user-card,
+.student-card,
+.notification-card.unread {
+  background: #000000c2;
+  padding: 15px;
+  border-radius: 10px;
+  margin:5px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-card h4,
+.student-card h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.user-card p,
+.student-card p {
+  color: rgba(255,255,255,0.7);
+  margin: 5px 0;
+}
+
+.notification-card.unread {
+  border-left: 4px solid #dc3545;
+}
+
+.notification-card.read {
+  border-left: 4px solid #28a745;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notification-header h4 {
+  color: white;
+  margin: 0;
+}
+
+.priority {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priority.low {
+  background: #28a745;
+  color: white;
+}
+
+.priority.normal {
+  background: #17a2b8;
+  color: white;
+}
+
+.priority.high {
+  background: #ffc107;
+  color: #000;
+}
+
+.priority.urgent {
+  background: #dc3545;
+  color: white;
+}
+
+.notification-message {
+  color: rgba(255,255,255,0.8);
+  margin: 15px 0;
+}
+
+.notification-meta {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.notification-meta p {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+.notification-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.mark-read-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mark-read-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.delete-notification-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delete-notification-btn:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.delete-modal {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.delete-modal h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.delete-modal p {
+  color: #94a3b8;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.delete-modal .modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.delete-modal .btn-confirm,
+.delete-modal .btn-cancel {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-modal .btn-confirm {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-modal .btn-confirm:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.delete-modal .btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.delete-modal .btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Student Management Styles */
+
+/* System Settings Styles */
+.settings-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.settings-tabs button {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.settings-tabs button.active {
+  color: white;
+  border-bottom-color: #2575fc;
+}
+
+.settings-content {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.profile-settings h3,
+.password-settings h3,
+.security-settings h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 14px;
+}
+
+.form-group input.disabled-input {
+  background: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.5);
+  cursor: not-allowed;
+}
+
+.form-group button,
+.security-section button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.security-section {
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.security-section h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.security-section p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 15px;
+}
+
+.security-info {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.security-info p {
+  margin: 8px 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.cancel-btn {
+  background: #6c757d !important;
+}
+
+/* Common error/success messages */
+.error-message {
+  background: rgba(220, 53, 69, 0.2);
+  border: 1px solid #dc3545;
+  color: #ff6b6b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  background: rgba(40, 167, 69, 0.2);
+  border: 1px solid #28a745;
+  color: #51cf66;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adminDashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .admin-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .dashboard-content {
+    padding: 25px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .student-management .subsection-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .student-management .add-student-form {
+    padding: 20px;
+  }
+
+  .student-management .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .users-grid,
+  .students-grid,
+  .notifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Css for scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 rgba(255, 255, 255, 0.06);
+}

@@ -1,0 +1,56 @@
+{
+  "name": "hostello",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "vite",
+    "start:backend": "cd .. && mvnw.cmd spring-boot:run",
+    "start:frontend": "wait-on http://localhost:8085 && npm run dev",
+    "dev:full": "npm-run-all --parallel start:backend start:frontend",
+    "setup": "npm install",
+    "clean": "rm -rf node_modules dist",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.0",
+    "axios": "^1.13.2",
+    "lucide-react": "^0.553.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-qr-barcode-scanner": "^2.1.19",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "npm-run-all": "^4.1.5",
+    "vite": "^7.1.7",
+    "wait-on": "^7.2.0"
+  },
+  "proxy": "http://localhost:8085",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

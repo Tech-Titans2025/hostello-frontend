@@ -1,0 +1,111 @@
+/* RootAdminRegistration.module.css */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1f1f2e, #2c2c3a);
+  color: #fff;
+  animation: bgMove 15s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.parent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.signupBox {
+  background-color: rgba(42, 42, 58, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signupBox:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #6a11cb; /* Purple-blue gradient accent */
+  text-shadow: 0 0 5px #4444c5;
+  margin-bottom: 1rem;
+}
+
+.input,
+select {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder,
+select {
+  color: #bbb;
+}
+
+select option {
+  background-color: #3b3b4f;
+  color: #fff;
+}
+
+select option:hover {
+  background-color: #505069;
+}
+
+.input:focus,
+select:focus {
+  background-color: #505069;
+  box-shadow: 0 0 8px #7a7aff;
+}
+
+.button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transition: 0.3s;
+  box-shadow: 0 0 12px #5964f2;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px #414fcf;
+}
+
+.errorMsg {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
